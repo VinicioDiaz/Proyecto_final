@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+Clasificación de Escuderias
+{% endblock %}
+
+{% block content %}
+
+<body>
+    {% for posiciones in posiciones %}
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Posición </th>
+                <th scope="col"> Equipo </th>
+                <th scope="col"> Puntos </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th> {{posiciones.posicion}} </th>
+                <td> {{posiciones.equipo}}  </td>
+                <td> {{posiciones.puntos}} </td>
+            </tr>
+        </tbody>
+    </table>
+        {% endfor %}
+    {% endblock %}

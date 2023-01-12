@@ -1,5 +1,5 @@
 from django.urls import path
-from Formula_1.views import pagina_de_inicio, crear_piloto, crear_escuderia, crear_circuito, lista_pilotos, lista_escuderias, lista_circuitos
+from Formula_1.views import pagina_de_inicio, crear_piloto, crear_escuderia, crear_circuito, lista_pilotos, lista_escuderias, lista_circuitos, Posicion_mundial_piloto, Posicion_mundial_constructor
 
 urlpatterns = [ 
     path('pagina-inicio/', pagina_de_inicio),
@@ -9,4 +9,6 @@ urlpatterns = [
     path('lista-pilotos/', lista_pilotos),
     path('lista-escuderias/', lista_escuderias),
     path('lista-circuitos/', lista_circuitos),
+    path('clasificacion-pilotos/', Posicion_mundial_piloto),
+    path('clasificacion-constructores/', Posicion_mundial_constructor),
 ]

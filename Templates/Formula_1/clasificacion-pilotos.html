@@ -1,0 +1,33 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+Clasificación de Pilotos
+{% endblock %}
+
+{% block content %}
+
+<body>
+    {% for posiciones in posiciones %}
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Posición </th>
+                <th scope="col"> Conductor </th>
+                <th scope="col"> Nacionalidad </th>
+                <th scope="col"> Auto </th>
+                <th scope="col"> Puntos </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th> {{posiciones.posicion}} </th>
+                <td> {{posiciones.conductor}}  </td>
+                <td> {{posiciones.nacionalidad}} </td>
+                <td> {{posiciones.auto}} </td>
+                <td> {{posiciones.puntos}} </td>
+            </tr>
+        </tbody>
+    </table>
+        {% endfor %}
+    {% endblock %}

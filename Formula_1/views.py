@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from Formula_1.models import Pilotos, Escuderias, Circuitos
+from Formula_1.models import Pilotos, Escuderias, Circuitos, Posicion_pilotos_2022, Posicion_constructores_2022
 
 
 
@@ -18,6 +18,13 @@ def crear_circuito(request):
     nuevo_circuito = Circuitos.objects.create(nombre = 'Circuito de Barcelona-Cataluña', ubicacion = 'Cataluña, España' , longitud = '4,675 km' , capacidad = '140,700 espectadores')
     return HttpResponse("Haz creado un nuevo circuito")
 
+def clasificacion_pilotos(request):
+    lista_clasificacion_pilotos = Posicion_pilotos_2022.objects.create(posicion = '1', conductor = 'Max Verstappen', nacionalidad = 'NED', auto = 'Red Bull Racing RBPT', puntos = '454 pts')
+    return HttpResponse("Agregaste piloto a la clasificación")
+
+def clasificacion_constructores(request):
+    lista_clasificacion_constructores = Posicion_constructores_2022.objects.create(posicion = '1', equipo = 'Red Bull Racing RBPT', puntos = '759 pts')
+    return HttpResponse("Agregaste constructor a la clasificación")
 
 
 
@@ -45,3 +52,17 @@ def lista_circuitos(request):
         'circuitos': todos_los_circuitos,
         }
         return render(request,'pagina_circuitos.html', context = context)
+
+def Posicion_mundial_piloto(request):
+    todas_las_posiciones = Posicion_pilotos_2022.objects.all()
+    context = {
+        'posiciones': todas_las_posiciones,
+    }
+    return render (request,'clasificacion-pilotos.html', context = context)
+
+def Posicion_mundial_constructor(request):
+    todas_las_posiciones = Posicion_constructores_2022.objects.all()
+    context = {
+        'posiciones': todas_las_posiciones,
+    }
+    return render (request,'clasificacion-constructores.html', context = context)
