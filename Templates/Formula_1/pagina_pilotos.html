@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'Base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de pilotos</title>
-</head>
+{% block title %}
+Listado de Pilotos
+{% endblock %}
+
+{% block content %}
 
 <body>
-    <table border="1px solid black">
-        <h1> ¡Bienvenido a la página de Pilotos de la Formula 1 Temporada 2023! </h1>
-        <thead>
-            <tr>
-                <th> Nombre </th>
-                <th> Nacionalidad </th>
-                <th> Edad </th>
-            </tr>
-        </thead>
-
-        <tbody>
             {% for piloto in pilotos %}
 
-            <tr>
-                <td> {{piloto.nombre}} </td>
-                <td> {{piloto.nacionalidad}} </td>
-                <td> {{piloto.edad}} </td>
-        </tbody>
-
-        </tr>
+            <div class="card" style="width: 18rem;">
+                <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> {{piloto.nombre}} </h5>
+                    <p class="card-text"> {{piloto.nacionalidad}} </p>
+                    <p class="card-text"> {{piloto.edad}} </p>
+                    <a href="#" class="btn btn-primary"> Ver más información del piloto </a>
+                </div>
+            </div>
         {% endfor %}
-
-    </table>
+{% endblock %}
 </body>
 
 </html>

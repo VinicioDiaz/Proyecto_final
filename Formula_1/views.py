@@ -4,8 +4,6 @@ from django.http import HttpResponse
 from Formula_1.models import Pilotos, Escuderias, Circuitos
 
 
-def pagina_de_inicio(request):
-    return render(request, 'pagina_inicio.html', context={})
 
 def crear_piloto(request):
     nuevo_piloto = Pilotos.objects.create(nombre = 'Carlos Sainz Jr', edad = 28, nacionalidad = 'Español')  
@@ -23,7 +21,8 @@ def crear_circuito(request):
 
 
 
-
+def pagina_de_inicio(request):
+    return render(request, 'pagina_inicio.html', context={})
 
 
 def lista_pilotos(request):
