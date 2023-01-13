@@ -10,7 +10,7 @@ de hacer lo siguiente:
         1.- Desarrollar una WEB Django con patrón MVT
         2.- Herencia de HTML
         3.- Realizar al menos 3 Models diferentes
-        4.- Un formulario para insertar datosa a todas las clases de los Models
+        4.- Un formulario para insertar datos a todas las clases de los Models
         5.- Un formulario para buscar algo en la base de datos
 
 *[Estado del proyecto](#Estado-del-proyecto)
