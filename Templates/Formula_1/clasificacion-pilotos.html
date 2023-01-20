@@ -18,10 +18,13 @@ Clasificación de Pilotos
         border-radius: 5px 5px 0 0;
         overflow: hidden;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 
     .content-table thead tr {
-        background-color:#FF0000;
+        background-color: #FF0000;
         color: #ffffff;
         text-align: center;
         font-weight: bold;
@@ -33,7 +36,7 @@ Clasificación de Pilotos
     }
 
     .content-table tbody tr {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #B0B0B0;
     }
 
     .content-table tbody tr:nth-of-type(even) {
@@ -45,42 +48,225 @@ Clasificación de Pilotos
     }
 
     .content-table tbody tr.active-row {
-        font-weight: bold;
+        font-weight: normal;
         color: #0a0a0a;
     }
 </style>
 
 
 <body>
-    <table class="content-table"> 
+    <table class="content-table">
         <thead>
             <tr>
+                <td class="limiter"> </td>
                 <th> Posición </th>
                 <th> Conductor </th>
                 <th> Nacionalidad </th>
                 <th> Auto </th>
+                <th> Puntos </th>
+                <td class="limiter"> </td>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td class="limiter"> </td>
                 <td> 1 </td>
                 <td> Max Verstappen </td>
-                <td> Neerlandés </td>
-                <td> Red Bull Racing RBPT</td>
+                <td> NED </td>
+                <td> Red Bull Racing RBPT </td>
+                <td> 454 </td>
+                <td class="limiter"></td>
             </tr>
             <tr class="active-row">
+                <td class="limiter"> </td>
                 <td> 2 </td>
-                <td> Charles Leclrec </td>
-                <td> Monegasco </td>
+                <td> Charles Leclerc </td>
+                <td> MON </td>
                 <td> Ferrari </td>
+                <td> 308 </td>
+                <td class="limiter"></td>
             </tr>
             <tr>
+                <td class="limiter"> </td>
                 <td> 3 </td>
-                <td> Sergio Pérez </td>
-                <td> Mexicano </td>
+                <td> Sergio Perez </td>
+                <td> MEX </td>
                 <td> Red Bull Racing RBPT </td>
+                <td> 305 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 4 </td>
+                <td> George Russell </td>
+                <td> GBR </td>
+                <td> Mercedes </td>
+                <td> 275 </td>
+                <td class="limiter"></td>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 5 </td>
+                <td> Carlos Sainz </td>
+                <td> ESP </td>
+                <td> Ferrari </td>
+                <td> 246 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 6 </td>
+                <td> Lewis Hamilton </td>
+                <td> GBR </td>
+                <td> Mercedes </td>
+                <td> 240 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 7 </td>
+                <td> Lando Norris </td>
+                <td> GBR </td>
+                <td> McLaren Mercedes </td>
+                <td> 122 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 8 </td>
+                <td> Esteban Ocon </td>
+                <td> FRA </td>
+                <td> Alpine </td>
+                <td> 92 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 9</td>
+                <td> Fernando Alonso </td>
+                <td> ESP </td>
+                <td> Alpine </td>
+                <td> 81 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 10 </td>
+                <td> Valteri Bottas </td>
+                <td> FIN </td>
+                <td> Alfa Romeo Ferrari </td>
+                <td> 49 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 11 </td>
+                <td> Daniel Riccardo </td>
+                <td> AUS </td>
+                <td> McLaren Mercedes </td>
+                <td> 37 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 12 </td>
+                <td> Sebastian Vettel </td>
+                <td> GER </td>
+                <td> Aston Martin Aramco Mercedes </td>
+                <td> 37 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 13 </td>
+                <td> Kevin Magnussen </td>
+                <td> DEN </td>
+                <td> Hass Ferrari </td>
+                <td> 25 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 14 </td>
+                <td> Pierre Gasly </td>
+                <td> FRA </td>
+                <td> AlphaTauri RBPT</td>
+                <td> 23 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 15 </td>
+                <td> Lance Stroll </td>
+                <td> CAN </td>
+                <td> Aston Martin Aramco Mercedes </td>
+                <td> 18 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 16 </td>
+                <td> Mick Schumacher </td>
+                <td> GER </td>
+                <td> Hass Ferrari </td>
+                <td> 12 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 17 </td>
+                <td> Yuki Tsunoda </td>
+                <td> JAP </td>
+                <td> AlphaTauri RBPT </td>
+                <td> 12 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 18 </td>
+                <td> Zhou Guanyu </td>
+                <td> CHN </td>
+                <td> Alfa Romeo Ferrari </td>
+                <td> 6 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 19 </td>
+                <td> Alexander Albon </td>
+                <td> THA </td>
+                <td> Williams Mercedes </td>
+                <td> 4 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 20 </td>
+                <td> Nicholas Latifi </td>
+                <td> CAN </td>
+                <td> Williams Mercedes </td>
+                <td> 2 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr>
+                <td class="limiter"> </td>
+                <td> 21 </td>
+                <td> Nick De Vries </td>
+                <td> NED </td>
+                <td> Williams Mercedes </td>
+                <td> 2 </td>
+                <td class="limiter"></td>
+            </tr>
+            <tr class="active-row">
+                <td class="limiter"> </td>
+                <td> 22 </td>
+                <td> Nico Hulkenberg </td>
+                <td> GER </td>
+                <td> Aston Martin Aramco Mercedes </td>
+                <td> 0 </td>
+                <td class="limiter"></td>
+            </tr>
             </tr>
         </tbody>
     </table>
 </body>
-    {% endblock %}
+{% endblock %}
