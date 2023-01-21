@@ -2,13 +2,34 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from Formula_1.models import Pilotos, Escuderias, Circuitos, Posicion_pilotos_2022, Posicion_constructores_2022
-
+from Formula_1.forms import PilotoForm, EscuderiaForm, CircuitosForm
 
 
 def crear_piloto(request):
-    nuevo_piloto = Pilotos.objects.create(nombre = 'Carlos Sainz Jr', edad = 28, nacionalidad = 'Español')  
-    
-    return HttpResponse('Haz creado un nuevo piloto')
+    if request.method == 'GET':
+        context = {
+            'form': PilotoForm()
+        }
+        return render(request, 'crear_piloto.html', context=context)
+
+    elif request.method == 'POST':
+        form = PilotoForm(request.POST)
+        if form.is_valid():
+            Pilotos.objects.create(
+                nombre = form.cleaned_data['nombre'],
+                edad = form.cleaned_data['edad'],
+                nacionalidad = form.cleaned_data['nacionalidad'],
+            )
+            context = {
+                'mensaje': 'Piloto creado correctamente'
+            }
+            return render (request, 'crear_piloto.html', context=context)
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form' : PilotoForm()
+            }
+            return render (request, 'crear_piloto.html', context=context)
 
 def crear_escuderia(request):
     nueva_escuderia = Escuderias.objects.create(nombre = 'Oracle Red Bull Racing', nacionalidad = 'Inglesa' , sede = 'Milton Keynes, England, UK' , año_de_fundacion = 2005)
@@ -28,12 +49,18 @@ def clasificacion_constructores(request):
 
 
 
+
+
+
 def pagina_de_inicio(request):
     return render(request, 'pagina_inicio.html', context={})
 
-
 def lista_pilotos(request):
-    todos_los_pilotos = Pilotos.objects.all()
+    if 'search' in request.GET:
+        search = request.GET['search']
+        todos_los_pilotos = Pilotos.objects.filter(name__icontains=search)
+    else:
+        todos_los_pilotos = Pilotos.objects.all()
     context = {
         'pilotos': todos_los_pilotos,
         }

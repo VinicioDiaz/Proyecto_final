@@ -7,7 +7,7 @@ Listado de Pilotos
 {% block content %}
 
 <body>
-
+    <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Añadir nuevo piloto </a>
     <section class="container mt-3">
         <div class="grid" style="--bs-columns: 3;">
             {% for pilotos in pilotos %}
@@ -16,16 +16,13 @@ Listado de Pilotos
                     style="width: 100%; height: 50%;" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
-                    <p class="card-text"> Nacionalidad: {{pilotos.edad}} </p>
-                    <p class="card-text"> Sede: {{pilotos.acionalidad}} </p>
-                    <a href="#" class="btn btn-primary"> Ver más información de la Escuderia</a>
+                    <p class="card-text"> Edad: {{pilotos.edad}} </p>
+                    <p class="card-text"> Nacionalidad: {{pilotos.nacionalidad}} </p>
+                    <a href="#" class="btn btn-primary"> Ver más información del piloto</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
-
-    {% endblock %}
 </body>
-
-</html>
+    {% endblock %}
