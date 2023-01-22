@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Formula_1',
+    'Tienda',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'Proyecto_final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'Templates/Formula_1/'],
+        'DIRS': [BASE_DIR / 'Templates/Formula_1'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

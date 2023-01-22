@@ -109,21 +109,21 @@ def lista_pilotos(request):
         context = {
         'pilotos': todos_los_pilotos,
         }
-        return render(request, 'pagina_pilotos.html', context = context)
+        return render(request, 'lista_pilotos.html', context = context)
 
 def lista_escuderias(request):
         todas_las_escuderias = Escuderias.objects.all()
         context = {
         'escuderias': todas_las_escuderias,
         }
-        return render(request,'pagina_escuderias.html', context = context)
+        return render(request,'lista_escuderias.html', context = context)
 
 def lista_circuitos(request):
         todos_los_circuitos = Circuitos.objects.all()
         context = {
         'circuitos': todos_los_circuitos,
         }
-        return render(request,'pagina_circuitos.html', context = context)
+        return render(request,'lista_circuitos.html', context = context)
 
 def Posicion_mundial_piloto(request):
     todas_las_posiciones = Posicion_pilotos_2022.objects.all()
