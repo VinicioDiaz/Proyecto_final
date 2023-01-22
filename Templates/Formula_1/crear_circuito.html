@@ -1,18 +1,18 @@
 {% extends 'Base.html' %}
 
 {% block title %}
-Página para crear Pilotos
+Página para crear Circuitos
 {% endblock %}
 
 {% block content %}
     {% if form %}
     <form action="" method="POST">
         {% csrf_token %}
-        <h1> ¡Bienvenido a la página para crear pilotos! </h1> 
+        <h1> ¡Bienvenido a la página para crear Circuitos! </h1> 
         <table>
             {{form.as_table}}
         </table>
-        <input type="submit" value="Crear piloto">
+        <input type="submit" value="Crear circuito">
     </form>
     {% endif %}
 

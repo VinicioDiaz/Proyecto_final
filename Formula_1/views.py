@@ -31,13 +31,62 @@ def crear_piloto(request):
             }
             return render (request, 'crear_piloto.html', context=context)
 
+
 def crear_escuderia(request):
-    nueva_escuderia = Escuderias.objects.create(nombre = 'Oracle Red Bull Racing', nacionalidad = 'Inglesa' , sede = 'Milton Keynes, England, UK' , año_de_fundacion = 2005)
-    return HttpResponse("Haz creado una nueva escunderia")
+    if request.method == 'GET':
+        context = {
+            'form': EscuderiaForm()
+        }
+        return render(request, 'crear_escuderia.html', context=context)
+
+    elif request.method == 'POST':
+        form = EscuderiaForm(request.POST)
+        if form.is_valid():
+            Escuderias.objects.create(
+                nombre = form.cleaned_data['nombre'],
+                nacionalidad = form.cleaned_data['nacionalidad'],
+                sede = form.cleaned_data['sede'],
+                año_de_fundacion = form.cleaned_data['año_de_fundacion'],
+            )
+            context = {
+                'mensaje': 'Escuderia creada correctamente'
+            }
+            return render (request, 'crear_escuderia.html', context=context)
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form' : EscuderiaForm()
+            }
+            return render (request, 'crear_escuderia.html', context=context)
+
 
 def crear_circuito(request):
-    nuevo_circuito = Circuitos.objects.create(nombre = 'Circuito de Barcelona-Cataluña', ubicacion = 'Cataluña, España' , longitud = '4,675 km' , capacidad = '140,700 espectadores')
-    return HttpResponse("Haz creado un nuevo circuito")
+    if request.method == 'GET':
+        context = {
+            'form': CircuitosForm()
+        }
+        return render(request, 'crear_circuito.html', context=context)
+
+    elif request.method == 'POST':
+        form = CircuitosForm(request.POST)
+        if form.is_valid():
+            Circuitos.objects.create(
+                nombre = form.cleaned_data['nombre'],
+                ubicacion = form.cleaned_data['ubicacion'],
+                longitud = form.cleaned_data['longitud'],
+                capacidad = form.cleaned_data['capacidad'],
+            )
+            context = {
+                'mensaje': 'Circuito creado correctamente'
+            }
+            return render (request, 'crear_circuito.html', context=context)
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form' : CircuitosForm()
+            }
+            return render (request, 'crear_circuitos.html', context=context)
+
 
 def clasificacion_pilotos(request):
     lista_clasificacion_pilotos = Posicion_pilotos_2022.objects.create(posicion = '1', conductor = 'Max Verstappen', nacionalidad = 'NED', auto = 'Red Bull Racing RBPT', puntos = '454 pts')
@@ -56,15 +105,11 @@ def pagina_de_inicio(request):
     return render(request, 'pagina_inicio.html', context={})
 
 def lista_pilotos(request):
-    if 'search' in request.GET:
-        search = request.GET['search']
-        todos_los_pilotos = Pilotos.objects.filter(name__icontains=search)
-    else:
         todos_los_pilotos = Pilotos.objects.all()
-    context = {
+        context = {
         'pilotos': todos_los_pilotos,
         }
-    return render(request, 'pagina_pilotos.html', context = context)
+        return render(request, 'pagina_pilotos.html', context = context)
 
 def lista_escuderias(request):
         todas_las_escuderias = Escuderias.objects.all()

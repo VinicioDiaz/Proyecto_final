@@ -7,22 +7,22 @@ Listado de Pilotos
 {% block content %}
 
 <body>
-    <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Añadir nuevo piloto </a>
-    <section class="container mt-3">
-        <div class="grid" style="--bs-columns: 3;">
-            {% for pilotos in pilotos %}
-            <div class="card mt-1" style="width: 18rem; height: 28rem;">
-                <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top"
-                    style="width: 100%; height: 50%;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
-                    <p class="card-text"> Edad: {{pilotos.edad}} </p>
-                    <p class="card-text"> Nacionalidad: {{pilotos.nacionalidad}} </p>
-                    <a href="#" class="btn btn-primary"> Ver más información del piloto</a>
-                </div>
-            </div>
-            {% endfor %}
+
+<h1> ¡Bienvenidos al Listado de Pilotos! </h1>
+<h3> Crear nuevo Piloto </h3> <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Crear Piloto </a>
+
+{% for pilotos in pilotos %}
+    <div class="card" style="width: 18rem;">
+        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
+            <p class="card-text"> Edad: {{pilotos.edad}} </p>
+            <p class="card-text"> Nacionalidad: {{piltos.nacionalidad}} </p>
+            <a href="#" class="btn btn-primary"> Ver más información de la Escuderia</a>
         </div>
-    </section>
-</body>
+    </div>
+    {% endfor %}
     {% endblock %}
+</body>
+
+</html>
