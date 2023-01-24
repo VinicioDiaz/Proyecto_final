@@ -8,17 +8,17 @@ Listado de Pilotos
 
 <body>
 
-<h1> ¡Bienvenidos al Listado de Pilotos! </h1>
-<h3> Crear nuevo Piloto </h3> <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Crear Piloto </a>
+    <h1> ¡Bienvenidos al Listado de Pilotos! </h1>
+    <h3> Crear nuevo Piloto </h3> <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Crear Piloto </a>
 
-{% for pilotos in pilotos %}
+    {% for pilotos in pilotos %}
     <div class="card" style="width: 18rem;">
         <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
             <p class="card-text"> Edad: {{pilotos.edad}} </p>
             <p class="card-text"> Nacionalidad: {{piltos.nacionalidad}} </p>
-            <a href="#" class="btn btn-primary"> Ver más información de la Escuderia</a>
+            <a href="#" class="btn btn-primary"> Ver más información del piloto </a>
         </div>
     </div>
     {% endfor %}

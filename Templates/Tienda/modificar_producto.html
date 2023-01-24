@@ -1,18 +1,18 @@
 {% extends 'Base.html' %}
 
 {% block title %}
-Página para crear Circuitos
+Página para modificar merch
 {% endblock %}
 
 {% block content %}
 {% if form %}
 <form action="" method="POST">
     {% csrf_token %}
-    <h1> ¡Bienvenido a la página para crear Circuitos! </h1>
+    <h1> ¡Bienvenido a la página para actualizar merch! </h1>
     <table>
         {{form.as_table}}
     </table>
-    <input type="submit" value="Crear circuito">
+    <input type="submit" value="Actualizar producto">
 </form>
 {% endif %}
 

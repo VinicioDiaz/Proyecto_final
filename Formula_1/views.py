@@ -10,7 +10,7 @@ def crear_piloto(request):
         context = {
             'form': PilotoForm()
         }
-        return render(request, 'crear_piloto.html', context=context)
+        return render(request, 'Formula_1/crear_piloto.html', context=context)
 
     elif request.method == 'POST':
         form = PilotoForm(request.POST)
@@ -23,13 +23,13 @@ def crear_piloto(request):
             context = {
                 'mensaje': 'Piloto creado correctamente'
             }
-            return render (request, 'crear_piloto.html', context=context)
+            return render (request, 'Formula_1/crear_piloto.html', context=context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form' : PilotoForm()
             }
-            return render (request, 'crear_piloto.html', context=context)
+            return render (request, 'Formula_1/crear_piloto.html', context=context)
 
 
 def crear_escuderia(request):
@@ -37,7 +37,7 @@ def crear_escuderia(request):
         context = {
             'form': EscuderiaForm()
         }
-        return render(request, 'crear_escuderia.html', context=context)
+        return render(request, 'Formula_1/crear_escuderia.html', context=context)
 
     elif request.method == 'POST':
         form = EscuderiaForm(request.POST)
@@ -51,13 +51,13 @@ def crear_escuderia(request):
             context = {
                 'mensaje': 'Escuderia creada correctamente'
             }
-            return render (request, 'crear_escuderia.html', context=context)
+            return render (request, 'Formula_1/crear_escuderia.html', context=context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form' : EscuderiaForm()
             }
-            return render (request, 'crear_escuderia.html', context=context)
+            return render (request, 'Formula_1/crear_escuderia.html', context=context)
 
 
 def crear_circuito(request):
@@ -65,7 +65,7 @@ def crear_circuito(request):
         context = {
             'form': CircuitosForm()
         }
-        return render(request, 'crear_circuito.html', context=context)
+        return render(request, 'Formula_1/crear_circuito.html', context=context)
 
     elif request.method == 'POST':
         form = CircuitosForm(request.POST)
@@ -79,13 +79,13 @@ def crear_circuito(request):
             context = {
                 'mensaje': 'Circuito creado correctamente'
             }
-            return render (request, 'crear_circuito.html', context=context)
+            return render (request, 'Formula_1/crear_circuito.html', context=context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form' : CircuitosForm()
             }
-            return render (request, 'crear_circuitos.html', context=context)
+            return render (request, 'Formula_1/crear_circuitos.html', context=context)
 
 
 def clasificacion_pilotos(request):
@@ -102,39 +102,39 @@ def clasificacion_constructores(request):
 
 
 def pagina_de_inicio(request):
-    return render(request, 'pagina_inicio.html', context={})
+    return render(request, 'Formula_1/pagina_inicio.html', context={})
 
 def lista_pilotos(request):
         todos_los_pilotos = Pilotos.objects.all()
         context = {
         'pilotos': todos_los_pilotos,
         }
-        return render(request, 'lista_pilotos.html', context = context)
+        return render(request, 'Formula_1/lista_pilotos.html', context = context)
 
 def lista_escuderias(request):
         todas_las_escuderias = Escuderias.objects.all()
         context = {
         'escuderias': todas_las_escuderias,
         }
-        return render(request,'lista_escuderias.html', context = context)
+        return render(request,'Formula_1/lista_escuderias.html', context = context)
 
 def lista_circuitos(request):
         todos_los_circuitos = Circuitos.objects.all()
         context = {
         'circuitos': todos_los_circuitos,
         }
-        return render(request,'lista_circuitos.html', context = context)
+        return render(request,'Formula_1/lista_circuitos.html', context = context)
 
 def Posicion_mundial_piloto(request):
     todas_las_posiciones = Posicion_pilotos_2022.objects.all()
     context = {
         'posiciones': todas_las_posiciones,
     }
-    return render (request,'clasificacion-pilotos.html', context = context)
+    return render (request,'Formula_1/clasificacion-pilotos.html', context = context)
 
 def Posicion_mundial_constructor(request):
     todas_las_posiciones = Posicion_constructores_2022.objects.all()
     context = {
         'posiciones': todas_las_posiciones,
     }
-    return render (request,'clasificacion-constructores.html', context = context)
+    return render (request,'Formula_1/clasificacion-constructores.html', context = context)
