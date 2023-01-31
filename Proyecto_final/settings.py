@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Formula_1',
     'Tienda',
+    'Usuarios',
 ]
 
 MIDDLEWARE = [

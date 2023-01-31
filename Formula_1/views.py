@@ -101,8 +101,7 @@ def clasificacion_constructores(request):
 
 
 
-def pagina_de_inicio(request):
-    return render(request, 'Formula_1/pagina_inicio.html', context={})
+
 
 def lista_pilotos(request):
         todos_los_pilotos = Pilotos.objects.all()
