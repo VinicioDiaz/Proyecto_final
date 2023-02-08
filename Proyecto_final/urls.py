@@ -23,6 +23,7 @@ from Proyecto_final.views import pagina_de_inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', pagina_de_inicio, name='index'),
     path('pagina-inicio/', pagina_de_inicio),
     path('Formula_1/', include('Formula_1.urls')),
     path('Tienda/', include('Tienda.urls')),

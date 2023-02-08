@@ -2,79 +2,126 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+  <title>{% block title %} {% endblock %}</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title> {% block title %} {% endblock %} </title>
+  <style>
+    .profile_picture {
+      width: 50px;
+      border-radius: 25px;
+      margin-right: auto;
+    }
 
+    .profile_picture {
+      font-style: italic;
+      font-weight: 400;
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/pagina-inicio/#"> Inicio </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/pagina-inicio/#"> Inicio </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Formula_1/lista-pilotos/"> Lista de Pilotos <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Formula_1/lista-escuderias/"> Lista de Escuderias <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Formula_1/lista-circuitos/"> Lista de Circuitos <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Temporada 2022
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/Formula_1/clasificacion-pilotos/"> Clasificación de Pilotos</a>
-                        <a class="dropdown-item" href="/Formula_1/clasificacion-constructores/"> Clasificación de Constructores</a>
-                    </div>
-                </li>
-                <li class="nav-item active" style="margin-right: 450px;">
-                    <a class="nav-link" href="/Tienda/lista-productos/"> Tienda <span class="sr-only">(current)</span></a>
-                </li>
-                {% if request.user.is_authenticated %}
-                <li class="nav-item active"> 
-                    <a class="nav-link" href="/Usuarios/logout/"> Logout <span class="sr-only">(current)</span></a>
-                </li>
-                {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Usuarios/login/"> Login <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Usuarios/signup/"> Signup<span class="sr-only">(current)</span></a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/Formula_1/lista-pilotos/">
+            Lista de Pilotos <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/Formula_1/lista-escuderias/">
+            Lista de Escuderias <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/Formula_1/lista-circuitos/">
+            Lista de Circuitos <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Temporada 2022
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/Formula_1/clasificacion-pilotos/">
+              Clasificación de Pilotos</a>
+            <a class="dropdown-item" href="/Formula_1/clasificacion-constructores/">
+              Clasificación de Constructores</a>
+          </div>
+        </li>
+        <li class="nav-item active" style="margin-right: 450px">
+          <a class="nav-link" href="/Tienda/lista-productos/">
+            Tienda <span class="sr-only">(current)</span></a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/Usuarios/logout/">
+            Logout <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="username">
+          <a class="nav-link" href="/Usuarios/update/">
+            {{request.user.username}}
+            <span class="sr-only">(current)</span></a>
+        </li>
+        {% if request.user.profile.profile_picture.url != '' %}
+        <img class="profile_picture" src="{{request.user.profile.profile_picture.url}}" alt="profile_picture" />
+        {% endif %} {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/Usuarios/login/">
+            Login <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/Usuarios/signup/">
+            Signup<span class="sr-only">(current)</span></a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
 </body>
 
-{% block content %}
-
-{% endblock %}
+{% block content %} {% endblock %}
 
 
-<p class="text-center mt-[20px]">© Todos los derechos reservados.<br> Toluca, Estado de México, México</p>
+<footer class="bg-light text-center text-white" style="margin-top: 500px;">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+        href="https://www.facebook.com/viniciods" role="button"><i class="fab fa-facebook-f"></i></a>
 
+      <!-- Twitter -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://twitter.com/Razco_"
+        role="button"><i class="fab fa-twitter"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn text-white btn-floating m-1" style="background-color: black" href="https://github.com/VinicioDiaz"
+        role="button"><i class="fab fa-instagram"></i></a>
+      <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Todos los derechos reservados
+    <a class="text-white" href="https://mdbootstrap.com/"><br />
+      Toluca, Estado de México, México</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
+  integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 </html>

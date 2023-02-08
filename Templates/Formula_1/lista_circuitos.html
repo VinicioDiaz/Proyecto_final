@@ -6,14 +6,22 @@ Listado de Circuitos
 
 {% block content %}
 
+
 <body>
 
-    <h1> ¡Bienvenidos al Listado de Circuitos </h1>
+    <center>
+        <h1> ¡Bienvenidos al Listado de Circuitos! </h1>
+    </center>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
     <h3> Crear nuevo Circuito </h3> <a href="/Formula_1/crear-circuito/" class="btn btn-primary"> Crear Circuito </a>
+    {% endif %}
+    {% endif %}
 
     {% for circuitos in circuitos %}
-    <div class="card" style="width: 18rem;">
-        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
+    <div class="card" style="width: 18rem; margin: auto;">
+        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="..."
+            style="height: 30px; height: 250px;">
         <div class="card-body">
             <h5 class="card-title"> Nombre: {{circuitos.nombre}} </h5>
             <p class="card-text"> Ubicación: {{circuitos.ubicacion}} </p>

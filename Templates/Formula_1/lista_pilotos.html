@@ -1,28 +1,39 @@
 {% extends 'Base.html' %}
 
 {% block title %}
+
 Listado de Pilotos
+
 {% endblock %}
 
 {% block content %}
 
 <body>
 
+  <center>
     <h1> ¡Bienvenidos al Listado de Pilotos! </h1>
-    <h3> Crear nuevo Piloto </h3> <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Crear Piloto </a>
+  </center>
+  {% if request.user.is_authenticated %}
+  {% if request.user.is_superuser %}
+  <h3> Crear nuevo Piloto </h3> <a href="/Formula_1/crear-piloto/" class="btn btn-primary"> Crear Piloto </a>
+  {% endif %}
+  {% endif %}
 
-    {% for pilotos in pilotos %}
-    <div class="card" style="width: 18rem;">
-        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
-            <p class="card-text"> Edad: {{pilotos.edad}} </p>
-            <p class="card-text"> Nacionalidad: {{piltos.nacionalidad}} </p>
-            <a href="#" class="btn btn-primary"> Ver más información del piloto </a>
-        </div>
+  {% for pilotos in pilotos %}
+  <table>
+    <div class="card" style="width: 18rem; margin: auto auto;">
+      <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="..."
+        style="height: 30px; height: 250px;">
+      <div class="card-body">
+        <h5 class="card-title"> Nombre: {{pilotos.nombre}} </h5>
+        <p class="card-text"> Edad: {{pilotos.edad}} </p>
+        <p class="card-text"> Nacionalidad: {{pilotos.nacionalidad}} </p>
+        <a href="#" class="btn btn-primary"> Ver más información del piloto </a>
+      </div>
     </div>
-    {% endfor %}
-    {% endblock %}
+  </table>
+  {% endfor %}
+  {% endblock %}
 </body>
 
 </html>

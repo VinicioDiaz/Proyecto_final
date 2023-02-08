@@ -1,15 +1,84 @@
 {% extends 'Base.html' %}
 
 {% block title %}
-Página de Inicio 
+Página de Inicio
 {% endblock %}
 
 {% block content %}
+<style>
+    .portada {
+        width: 800px;
+        height: 400px;
+        object-fit: cover;
+    }
 
-<h1> ¡Inicio! </h1>
+    .parrafo {
+        text-align: justify;
+        margin: 30px 40px 50px;
+    }
+</style>
 
-{% if message %}
-    <h2> {{message}} </h2>
-{% endif %}
+<body>
+    <h1 class="parrafo"> Noticias F1 </h1>
+    <center> <img
+            src="https://mexicogp.s3.us-west-2.amazonaws.com/wp-content/uploads/2022/10/30013900/01_galeria_30OCT.jpg"
+            class="portada" alt="" </center>
+        <p class="parrafo"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod soluta voluptates
+            autem.
+            Eaque,
+            voluptas ex tenetur, eos nam in neque, sit dolores itaque aliquid molestias facilis deserunt animi?
+            Animi
+            earum
+            dignissimos corrupti. Expedita temporibus sit laborum, maiores, in amet nostrum aliquam dicta
+            doloribus
+            porro
+            vel aut nulla tempora ex consequatur excepturi. Nihil mollitia harum maiores minima debitis
+            reiciendis
+            blanditiis nesciunt eaque odit ipsum, repellendus saepe sint ea error inventore nisi aperiam ad
+            tempora vel
+            ut?
+            Quasi error quaerat, doloribus eveniet ullam accusamus, fugit veritatis, earum culpa sapiente
+            placeat. Quasi
+            mollitia ullam ratione, id animi doloremque vero dolores itaque nemo aperiam culpa molestias tenetur
+            aboriosam
+            facilis error nulla, ducimus, natus veritatis eveniet placeat, modi quae doloremque? Aut, dicta
+            accusamus et
+            ut
+            nam corrupti provident assumenda facilis rem aliquid similique illum iusto, fugiat autem possimus
+            laboriosam
+            eligendi tenetur dolores. Facere quod aliquid perspiciatis velit, officia sequi natus illo est in
+            eaque,
+            repellendus dolores, qui minus rerum nobis nam. Sequi inventore officia tenetur voluptates eaque
+            facilis
+            fuga
+            aliquid cumque quo possimus, maiores a repellendus obcaecati aliquam modi dolorum, atque tempore
+            explicabo
+            eligendi perspiciatis nemo dicta, ullam vitae mollitia. Facere labore magnam eum asperiores rem?
+            Sapiente
+            reprehenderit, doloremque fugiat esse commodi doloribus consequatur debitis eius ad iste assumenda
+            numquam,
+            nisi
+            inventore alias atque. Dolorum nihil quaerat et molestiae! Explicabo dicta cum iusto minus sit natus
+            sunt
+            minima
+            corporis tempore vel! </p>
 
+        <h2> Novedades </h2>
+        <p class="parrafo"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores ullam quaerat
+            officia! Sit
+            illo
+            dolore fugiat delectus ullam. Fuga quo corporis sit doloremque quis officiis quidem esse in
+            voluptate assumenda. Delectus dolorum exercitationem, reprehenderit deleniti sit nam sunt, ut
+            quaerat rem corporis magni adipisci nemo aspernatur eligendi assumenda, laboriosam enim eum
+            fugiat impedit. Maxime hic, cumque nesciunt debitis voluptate sequi quidem, sint amet eius earum
+            labore. Placeat similique a molestiae aperiam laborum neque ab pariatur, impedit quasi, illum
+            aliquam incidunt odit temporibus illo! Doloremque sint obcaecati nisi minima quam ducimus magnam
+            possimus id corporis cumque aliquam, maxime, delectus, voluptatem pariatur!</p>
+
+        <center> <img
+                src="https://img.asmedia.epimg.net/resizer/to8HfZhgNybyDtcyWpMFpLL8-e0=/1952x1098/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/CU3AL2ZO2NF4LGD5CI7FLILGOI.jpg"
+                class="portada" alt="" </center>
+
+
+</body>
 {% endblock %}

@@ -8,12 +8,19 @@ Listado de Escuderias
 
 <body>
 
-    <h1> ¡Bienvenidos al Listado de Escuderias </h1>
+    <center>
+        <h1> ¡Bienvenidos al Listado de Escuderias! </h1>
+    </center>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
     <h3> Crear nueva Escuderia </h3> <a href="/Formula_1/crear-escuderia/" class="btn btn-primary"> Crear Escuderia </a>
+    {% endif %}
+    {% endif %}
 
     {% for escuderias in escuderias %}
-    <div class="card" style="width: 18rem;">
-        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
+    <div class="card" style="width: 18rem; margin: auto;">
+        <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="..."
+            style="height: 30px; height: 250px;">
         <div class="card-body">
             <h5 class="card-title"> Nombre: {{escuderias.nombre}} </h5>
             <p class="card-text"> Nacionalidad: {{escuderias.nacionalidad}} </p>

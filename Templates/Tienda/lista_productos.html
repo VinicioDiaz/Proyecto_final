@@ -8,20 +8,30 @@ Listado de Productos
 
 <body>
 
-    <h1> ¡Bienvenidos a la página para comprar merch! </h1>
+    <center>
+        <h1> ¡Bienvenidos a la página para comprar merch! </h1>
+    </center>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
     <h3> Crear nuevo producto </h3> <a href="/Tienda/crear-producto/" class="btn btn-primary"> Crear Producto </a>
-    
+    {% endif %}
+    {% endif %}
     {% for producto in object_list %}
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem; margin: auto;">
         <img src="https://1000marcas.net/wp-content/uploads/2020/01/logo-F1.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title"> Nombre: {{producto.nombre}} </h5>
             <p class="card-text"> Talla: {{producto.talla}} </p>
             <p class="card-text"> Precio (USD) : {{producto.precio}} </p>
+            <a href="/Tienda/comprar-producto/" class="btn btn-primary"> Comprar </a>
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
             <p class="card-text"> Stock: {{roducto.stock}} </p>
             <a href="/Tienda/modificar-producto/{{producto.id}}/" class="btn btn-primary"> Actualizar </a>
             <a href="/Tienda/eliminar-producto/{{producto.id}}/" class="btn btn-danger"> Borrar </a>
+            {% endif %}
+            {% endif %}
         </div>
     </div>
     {% endfor %}

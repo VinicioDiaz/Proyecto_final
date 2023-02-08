@@ -5,6 +5,8 @@ Página para crear Pilotos
 {% endblock %}
 
 {% block content %}
+{% if request.user.is_authenticated %}
+{% if request.user.is_superuser %}
 {% if form %}
 <form action="" method="POST">
     {% csrf_token %}
@@ -14,6 +16,8 @@ Página para crear Pilotos
     </table>
     <input type="submit" value="Crear piloto">
 </form>
+{% endif %}
+{% endif %}
 {% endif %}
 
 {% if form_errors %}

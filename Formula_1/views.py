@@ -1,10 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse
 
 from Formula_1.models import Pilotos, Escuderias, Circuitos, Posicion_pilotos_2022, Posicion_constructores_2022
 from Formula_1.forms import PilotoForm, EscuderiaForm, CircuitosForm
 
-
+@login_required
 def crear_piloto(request):
     if request.method == 'GET':
         context = {
@@ -19,6 +20,7 @@ def crear_piloto(request):
                 nombre = form.cleaned_data['nombre'],
                 edad = form.cleaned_data['edad'],
                 nacionalidad = form.cleaned_data['nacionalidad'],
+
             )
             context = {
                 'mensaje': 'Piloto creado correctamente'
@@ -31,7 +33,7 @@ def crear_piloto(request):
             }
             return render (request, 'Formula_1/crear_piloto.html', context=context)
 
-
+@login_required
 def crear_escuderia(request):
     if request.method == 'GET':
         context = {
@@ -59,7 +61,7 @@ def crear_escuderia(request):
             }
             return render (request, 'Formula_1/crear_escuderia.html', context=context)
 
-
+@login_required
 def crear_circuito(request):
     if request.method == 'GET':
         context = {
