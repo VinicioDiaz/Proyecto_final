@@ -11,6 +11,8 @@ tienen listados actualizados sobre los pilotos, las escuderias y los circuitos p
 
 *[Estado del proyecto](#Estado-del-proyecto)
 
+Link del video de muestra: https://youtu.be/vIuUqxeMhZg
+
 <h4 align="center">
 :construction: Proyecto en construcción :construction:
 </h4>
